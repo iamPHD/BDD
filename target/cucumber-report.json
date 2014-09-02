@@ -1,0 +1,338 @@
+[
+  {
+    "id": "customer-transfer\u0027s-fund",
+    "description": "   As a customer,\r\n   I want to transfer funds\r\n   so that I can send money to my friends and family",
+    "name": "Customer Transfer\u0027s Fund",
+    "keyword": "Feature",
+    "line": 1,
+    "elements": [
+      {
+        "id": "customer-transfer\u0027s-fund;valid-payee",
+        "description": "",
+        "name": "Valid Payee",
+        "keyword": "Scenario",
+        "line": 6,
+        "steps": [
+          {
+            "name": "the user is on Fund Transfer Page",
+            "keyword": "Given ",
+            "line": 7
+          },
+          {
+            "name": "he enters \"Jim\" as payee name",
+            "keyword": "When ",
+            "line": 8
+          },
+          {
+            "name": "he enters \"100\" as amount",
+            "keyword": "And ",
+            "line": 9
+          },
+          {
+            "name": "he Submits request for Fund Transfer",
+            "keyword": "And ",
+            "line": 10
+          },
+          {
+            "result": {
+              "duration": 35184684,
+              "status": "passed"
+            },
+            "name": "ensure the fund transfer is complete with \"$100 transferred successfully to Jim!!\" message",
+            "keyword": "Then ",
+            "line": 11,
+            "match": {
+              "arguments": [
+                {
+                  "val": "$100 transferred successfully to Jim!!",
+                  "offset": 43
+                }
+              ],
+              "location": "FundTransferStepDefs.Ensure_the_fund_transfer_is_complete(String)"
+            }
+          }
+        ],
+        "type": "scenario"
+      },
+      {
+        "id": "customer-transfer\u0027s-fund;invalid-payee",
+        "description": "",
+        "name": "Invalid Payee",
+        "keyword": "Scenario",
+        "line": 13,
+        "steps": [
+          {
+            "name": "the user is on Fund Transfer Page",
+            "keyword": "Given ",
+            "line": 14
+          },
+          {
+            "name": "he enters \"Jack\" as payee name",
+            "keyword": "When ",
+            "line": 15
+          },
+          {
+            "name": "he enters \"100\" as amount",
+            "keyword": "And ",
+            "line": 16
+          },
+          {
+            "name": "he Submits request for Fund Transfer",
+            "keyword": "And ",
+            "line": 17
+          },
+          {
+            "result": {
+              "duration": 32204397,
+              "status": "passed"
+            },
+            "name": "ensure a transaction failure message \"Transfer failed!! \u0027Jack\u0027 is not registered in your List of Payees\" is displayed",
+            "keyword": "Then ",
+            "line": 18,
+            "match": {
+              "arguments": [
+                {
+                  "val": "Transfer failed!! \u0027Jack\u0027 is not registered in your List of Payees",
+                  "offset": 38
+                }
+              ],
+              "location": "FundTransferStepDefs.Ensure_a_transaction_failure_message(String)"
+            }
+          }
+        ],
+        "type": "scenario"
+      },
+      {
+        "id": "customer-transfer\u0027s-fund;account-is-overdrawn-past-the-overdraft-limit",
+        "description": "",
+        "name": "Account is overdrawn past the overdraft limit",
+        "keyword": "Scenario",
+        "line": 20,
+        "steps": [
+          {
+            "name": "the user is on Fund Transfer Page",
+            "keyword": "Given ",
+            "line": 21
+          },
+          {
+            "name": "he enters \"Tim\" as payee name",
+            "keyword": "When ",
+            "line": 22
+          },
+          {
+            "name": "he enters \"1000000\" as amount",
+            "keyword": "And ",
+            "line": 23
+          },
+          {
+            "name": "he Submits request for Fund Transfer",
+            "keyword": "And ",
+            "line": 24
+          },
+          {
+            "result": {
+              "duration": 32330851,
+              "status": "passed"
+            },
+            "name": "ensure a transaction failure message \"Transfer failed!! account cannot be overdrawn\" is displayed",
+            "keyword": "Then ",
+            "line": 25,
+            "match": {
+              "arguments": [
+                {
+                  "val": "Transfer failed!! account cannot be overdrawn",
+                  "offset": 38
+                }
+              ],
+              "location": "FundTransferStepDefs.Ensure_a_transaction_failure_message(String)"
+            }
+          }
+        ],
+        "type": "scenario"
+      },
+      {
+        "id": "customer-transfer\u0027s-fund;blank-payee",
+        "description": "",
+        "name": "Blank Payee",
+        "keyword": "Scenario",
+        "line": 27,
+        "steps": [
+          {
+            "name": "the user is on Fund Transfer Page",
+            "keyword": "Given ",
+            "line": 28
+          },
+          {
+            "name": "he enters \"\" as payee name",
+            "keyword": "When ",
+            "line": 29
+          },
+          {
+            "name": "he enters \"100\" as amount",
+            "keyword": "And ",
+            "line": 30
+          },
+          {
+            "name": "he Submits request for Fund Transfer",
+            "keyword": "And ",
+            "line": 31
+          },
+          {
+            "result": {
+              "duration": 49349751,
+              "status": "passed"
+            },
+            "name": "ensure an edit message \"Please enter a valid Payee name\" is displayed",
+            "keyword": "Then ",
+            "line": 32,
+            "match": {
+              "arguments": [
+                {
+                  "val": "Please enter a valid Payee name",
+                  "offset": 24
+                }
+              ],
+              "location": "FundTransferStepDefs.Ensure_an_edit_message(String)"
+            }
+          }
+        ],
+        "type": "scenario"
+      },
+      {
+        "id": "customer-transfer\u0027s-fund;click-on-transfer-button-without-entering-anything",
+        "description": "",
+        "name": "Click on Transfer button without entering anything",
+        "keyword": "Scenario",
+        "line": 34,
+        "steps": [
+          {
+            "name": "the user is on Fund Transfer Page",
+            "keyword": "Given ",
+            "line": 35
+          },
+          {
+            "name": "he Submits request for Fund Transfer",
+            "keyword": "And ",
+            "line": 36
+          },
+          {
+            "result": {
+              "duration": 51322436,
+              "status": "passed"
+            },
+            "name": "ensure an edit message \"Please enter a valid Payee name\" is displayed",
+            "keyword": "Then ",
+            "line": 37,
+            "match": {
+              "arguments": [
+                {
+                  "val": "Please enter a valid Payee name",
+                  "offset": 24
+                }
+              ],
+              "location": "FundTransferStepDefs.Ensure_an_edit_message(String)"
+            }
+          }
+        ],
+        "type": "scenario"
+      },
+      {
+        "id": "customer-transfer\u0027s-fund;blank-amount",
+        "description": "",
+        "name": "Blank Amount",
+        "keyword": "Scenario",
+        "line": 39,
+        "steps": [
+          {
+            "name": "the user is on Fund Transfer Page",
+            "keyword": "Given ",
+            "line": 40
+          },
+          {
+            "name": "he enters \"Jim\" as payee name",
+            "keyword": "When ",
+            "line": 41
+          },
+          {
+            "name": "he enters \"\" as amount",
+            "keyword": "And ",
+            "line": 42
+          },
+          {
+            "name": "he Submits request for Fund Transfer",
+            "keyword": "And ",
+            "line": 43
+          },
+          {
+            "result": {
+              "duration": 33156286,
+              "status": "passed"
+            },
+            "name": "ensure an edit message \"Please a valid amount\" is displayed",
+            "keyword": "Then ",
+            "line": 44,
+            "match": {
+              "arguments": [
+                {
+                  "val": "Please a valid amount",
+                  "offset": 24
+                }
+              ],
+              "location": "FundTransferStepDefs.Ensure_an_edit_message(String)"
+            }
+          }
+        ],
+        "type": "scenario"
+      },
+      {
+        "id": "customer-transfer\u0027s-fund;alphanumeric-amount",
+        "description": "",
+        "name": "Alphanumeric Amount",
+        "keyword": "Scenario",
+        "line": 46,
+        "steps": [
+          {
+            "name": "the user is on Fund Transfer Page",
+            "keyword": "Given ",
+            "line": 47
+          },
+          {
+            "name": "he enters \"Jim\" as payee name",
+            "keyword": "When ",
+            "line": 48
+          },
+          {
+            "name": "he enters \"4$5@3\" as amount",
+            "keyword": "And ",
+            "line": 49
+          },
+          {
+            "name": "he Submits request for Fund Transfer",
+            "keyword": "And ",
+            "line": 50
+          },
+          {
+            "result": {
+              "duration": 31981178,
+              "status": "passed"
+            },
+            "name": "ensure an edit message \"Please a valid amount\" is displayed",
+            "keyword": "Then ",
+            "line": 51,
+            "match": {
+              "arguments": [
+                {
+                  "val": "Please a valid amount",
+                  "offset": 24
+                }
+              ],
+              "location": "FundTransferStepDefs.Ensure_an_edit_message(String)"
+            }
+          }
+        ],
+        "type": "scenario"
+      }
+    ],
+    "uri": "fundtransfer\\test\\fundtransfer.feature"
+  }
+]
